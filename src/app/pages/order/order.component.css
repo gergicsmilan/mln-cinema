@@ -1,0 +1,78 @@
+.cover {
+  width: 100%;
+  height: 450px;
+  background: url("/assets/covers/order_header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  mask-image: linear-gradient(180deg, #000, transparent);
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 60px auto 0 auto;
+}
+
+.order-container {
+  width: 80vw;
+  padding: 15px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: #1a1a1d;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.order-info {
+  width: 100%;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.order-info > h2 {
+  color: #6f2232;
+}
+
+.movie-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.movie-date {
+  font-style: italic;
+}
+
+hr {
+  border: 1px solid #4e4e50;
+  margin-bottom: 18px;
+}
+
+.ticket-type-info {
+  width: 100%;
+}
+
+.user-note {
+  margin-top: 18px;
+}
+
+.user-note > p {
+  font-size: 14px;
+}
+
+.user-note > p > a {
+  color: #6f2232;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.user-note > p > a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,39 @@
+<div *ngIf="isLoading; else notLoading" class="loading-container">
+  <app-loading-spinner isLoading="isLoading"></app-loading-spinner>
+</div>
+<ng-template #notLoading>
+  <div class="profile-empty" *ngIf="orders.length <= 0">
+    <h1>You have not ordered anything yet!</h1>
+    <a [routerLink]="['/movies']">Go to movies</a>
+  </div>
+  <div class="order-container" *ngIf="orders.length > 0">
+    <h1>Your tickets</h1>
+    <div class="order" *ngFor="let order of orders; let i = index">
+      <div class="order-header">
+        <p>#{{ i + 1 }}</p>
+        <p>{{ order.movie.name }}</p>
+        <p>{{ order.date }}</p>
+      </div>
+      <hr />
+      <h3>Ticket(s):</h3>
+      <div class="ticket" *ngFor="let ticket of order.tickets">
+        <p>
+          Seat: <strong>{{ ticket.seat }}</strong>
+        </p>
+        <p>
+          <strong>{{ ticket.price }} $</strong>
+        </p>
+      </div>
+      <button (click)="onCancel(order.id)" class="btn-cancel">
+        Cancel order
+      </button>
+    </div>
+  </div>
+  <app-costum-popup
+    *ngIf="showPopup"
+    [header]="['Cancel order!']"
+    [message]="['You successfuly deleted your order!']"
+    [btnMsg]="['Ok']"
+    (close)="closePopup()"
+  ></app-costum-popup>
+</ng-template>

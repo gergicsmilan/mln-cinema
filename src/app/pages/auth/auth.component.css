@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+
+.error-container {
+  margin: 10px 0;
+  padding: 10px;
+  max-width: 75%;
+  border: 1px solid #c3073f;
+  background-color: peachpuff;
+  color: #c3073f;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-wrapper {
+  width: 40%;
+  max-width: 400px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
+  background-color: #272727;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 75px;
+  background-color: #000;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.form-footer > p {
+  color: #fff;
+}
+
+.auth-form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 80%;
+  margin: 15px 0;
+}
+
+.input-group {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+
+.input-group > label {
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.input-group > span {
+  min-height: 25px;
+  margin-bottom: 8px;
+}
+
+.input-group > span > p {
+  font-size: 14px;
+  color: #c3073f;
+}
+
+.input-group > input {
+  outline: none;
+  border: 1px solid #000;
+  height: 1.4rem;
+  border-radius: 5px;
+}
+
+.input-group > input.ng-touched.ng-invalid {
+  border: 1px solid #c3073f;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.btn-auth {
+  cursor: pointer;
+  margin: 0 10px;
+  border: 2px solid #6f2232;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 3px 10px 5px 10px;
+  font-size: 14px;
+  background-color: #6f2232;
+  outline: none;
+}
+
+.btn-auth:disabled {
+  cursor: not-allowed;
+  background-color: transparent;
+  color: #6f2232;
+}
+
+@media (max-width: 426px) {
+  .form-wrapper {
+    width: 90%;
+  }
+}

@@ -1,0 +1,198 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #1a1a1d;
+  height: 60px;
+  z-index: 1000;
+  box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, 0.25);
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  padding-left: 8px;
+}
+
+.logo-link > img {
+  width: 25px;
+  height: 40px;
+}
+
+.group-links {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  color: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  margin-right: 12px;
+}
+
+.link.active {
+  color: #6f2232;
+}
+
+.link:hover {
+  color: #6f2232;
+}
+
+.auth-actions {
+  padding-right: 5px;
+}
+
+.auth-button {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 3px 20px 5px 20px;
+  text-decoration: none;
+  border: 2px solid #6f2232;
+  border-radius: 10px;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.auth-button:hover {
+  background-color: #6f2232;
+}
+
+.btn-logout {
+  margin-left: 12px;
+  padding: 6px 10px 6px 10px;
+  border-radius: 10px;
+  border: 2px solid #6f2232;
+  color: #fff;
+  background-color: inherit;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-logout:hover {
+  background-color: #6f2232;
+}
+
+.link-profile {
+  color: #4e4e50;
+  text-decoration: none;
+}
+
+.link-profile:hover {
+  text-decoration: underline;
+}
+
+.burger-menu {
+  display: none;
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.burger-menu > span {
+  position: absolute;
+  top: 23%;
+  left: 12.5%;
+  width: 75%;
+  height: 2px;
+  background-color: #4e4e50;
+  transition: all cubic-bezier(0.26, 0.1, 0.27, 1.55) 0.35s;
+}
+
+.burger-menu :first-child.open {
+  transform: rotate(45deg);
+  top: 48%;
+}
+
+.burger-menu :nth-child(2) {
+  top: 49%;
+  opacity: 1;
+}
+
+.burger-menu :nth-child(2).open {
+  transform: rotate(-45deg);
+  opacity: 0;
+  top: 48%;
+  color: wheat;
+}
+
+.burger-menu :nth-child(3) {
+  top: 75%;
+}
+
+.burger-menu :nth-child(3).open {
+  transform: rotate(-45deg);
+  top: 48%;
+}
+
+@media (max-width: 769px) {
+  .burger-menu {
+    display: block;
+  }
+
+  .auth-actions {
+    display: none;
+  }
+
+  .links-wrapper {
+    display: none;
+  }
+
+  .mobile-menu-container {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background-color: #121212;
+    z-index: 999;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .resp-menu-links {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  .link {
+    margin-right: 0;
+  }
+
+  .resp-menu-actions {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  .btn-logout {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .mobile-menu-toggler {
+    display: block;
+  }
+}

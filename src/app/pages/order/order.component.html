@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div class="cover"></div>
+  <div class="order-container">
+    <div class="order-info">
+      <h2>Chosen movie and date</h2>
+      <hr />
+      <p class="movie-name">{{ selectedMovie.name }}</p>
+      <p class="movie-date">{{ selectedDate | date }} - {{ selectedTime }}</p>
+      <div class="user-note" *ngIf="!userId">
+        <p>
+          You can <a [routerLink]="['/auth']">Sign in</a> to manage your order!
+        </p>
+        <p>* Note: You do not have to be signed in to be able to order!</p>
+      </div>
+    </div>
+    <div class="order-info">
+      <h2>Please pick seats</h2>
+      <hr />
+      <app-seat-picker></app-seat-picker>
+    </div>
+    <div class="ticket-type-info">
+      <app-ticket-type-picker
+        (orderHandler)="handleOrder()"
+        [selectedMovie]="selectedMovie"
+      ></app-ticket-type-picker>
+    </div>
+  </div>
+  <app-costum-popup
+    *ngIf="showPopup"
+    [header]="['Thank you for your order!']"
+    [message]="
+      !userId
+        ? [
+            'We recieved your order, after 5 seconds you will be redirected to Home page!'
+          ]
+        : [
+            'We recieved your oder, you will be redirected to your Profile page, where you can check your ordered tickets!'
+          ]
+    "
+    [btnMsg]="userId ? ['Go to profile'] : ['Go to home']"
+    (close)="closePopup()"
+  ></app-costum-popup>
+</div>

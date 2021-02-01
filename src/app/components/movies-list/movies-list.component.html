@@ -1,0 +1,64 @@
+<div *ngIf="isLoading" class="loading-spinner-container">
+  <app-loading-spinner isLoading="isLoading"></app-loading-spinner>
+</div>
+<div class="table-container" *ngIf="movies && !isLoading">
+  <div class="movies-info-container">
+    <p>
+      Movies on: <strong> {{ selectedDate | date }}</strong>
+    </p>
+    <span>
+      <label for="search-input">Search</label>
+      <input
+        class="search-input"
+        type="search"
+        [(ngModel)]="searchTerm"
+        id="search-input"
+      />
+    </span>
+  </div>
+  <table class="movies-table">
+    <thead>
+      <tr class="th-row">
+        <th></th>
+        <th>Title</th>
+        <th class="center">IMDb</th>
+        <th class="center">Categories</th>
+        <th class="center">When</th>
+        <th class="center">Tickets</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies | movieFilter: searchTerm">
+        <td class="center">
+          <img class="film-img" src="{{ movie.smallImgUrl }}" alt="movie_img" />
+        </td>
+        <td>{{ movie.name }}</td>
+        <td class="center">
+          <a href="{{ movie.imdb }}" target="_blank">
+            <img
+              class="imdb-link"
+              src="assets/icons/imdb_icon.png"
+              alt="imdb_icon"
+          /></a>
+        </td>
+
+        <td class="center">
+          <span *ngFor="let category of movie.categories">
+            {{ category }}
+          </span>
+        </td>
+
+        <td class="center">{{ movie.time }}</td>
+        <td class="center">
+          <a
+            class="btn-ticket"
+            routerLink="/get-ticket/{{ movie.id }}/{{ selectedDate }}/{{
+              movie.time
+            }}"
+            >Ticket</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

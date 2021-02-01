@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="form-wrapper">
+    <div class="form-header">
+      <h1>{{ loginMode ? "Sign In" : "Sign Up" }}</h1>
+    </div>
+    <div *ngIf="error" class="error-container">{{ error }}</div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="auth-form">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          ngModel
+          name="email"
+          #email="ngModel"
+          required
+          email
+        />
+        <span>
+          <p *ngIf="!email.valid && email.touched">
+            * Please enter a valid email!
+          </p>
+        </span>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          ngModel
+          name="password"
+          #password="ngModel"
+          required
+          minlength="6"
+        />
+        <span>
+          <p *ngIf="!password.valid && password.touched">
+            * The password must contain 6 characters!
+          </p>
+        </span>
+      </div>
+      <span class="form-footer">
+        <button class="btn-auth" type="submit" [disabled]="!f.valid">
+          {{ loginMode ? "Sign In" : "Sign Up" }}
+        </button>
+        <p>or</p>
+        <button class="btn-auth" type="button" (click)="onNavigateSignIn()">
+          {{ loginMode ? "Sign Up" : "Sign In" }}
+        </button>
+      </span>
+    </form>
+  </div>
+</div>

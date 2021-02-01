@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="seat-picker-container">
+    <div class="row-wrapper" *ngFor="let rows of seats; let row = index">
+      <div class="row-first-seats">
+        <button
+          class="seat"
+          *ngFor="let seat of rows.row.first"
+          (click)="clickHandler(seat.id, row, 'first')"
+          [ngClass]="{ reserved: seat.reserved }"
+          [ngClass]="{
+            reserved: seat.reserved,
+            selected: !seat.reserved && seat.selected
+          }"
+          [disabled]="seat.reserved"
+        >
+          {{ seat.id }}
+        </button>
+      </div>
+      <div class="row-second-seats">
+        <button
+          class="seat"
+          *ngFor="let seat of rows.row.second"
+          (click)="clickHandler(seat.id, row, 'second')"
+          [ngClass]="{
+            reserved: seat.reserved,
+            selected: !seat.reserved && seat.selected
+          }"
+          [disabled]="seat.reserved"
+        >
+          {{ seat.id }}
+        </button>
+      </div>
+    </div>
+    <div class="screen"><p>screen</p></div>
+  </div>
+  <div class="tip-tool">
+    <div class="tip-reserved"></div>
+    reserved
+    <div class="tip-selected"></div>
+    selected
+    <div class="tip-free"></div>
+    free
+  </div>
+</div>

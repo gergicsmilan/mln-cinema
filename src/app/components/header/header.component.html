@@ -1,0 +1,92 @@
+<header class="container" (window:resize)="onResize($event)">
+  <div class="header-wrapper">
+    <div class="group-links">
+      <a class="logo-link" routerLink="/" routerLinkActive="active" exact>
+        <img src="/assets/images/logo.png" alt="" />
+      </a>
+      <div class="links-wrapper">
+        <a
+          class="link"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+        <a class="link" routerLink="/movies" routerLinkActive="active"
+          >Movies</a
+        >
+      </div>
+    </div>
+    <div class="auth-actions">
+      <a
+        class="auth-button"
+        routerLink="/auth"
+        routerLinkActive
+        *ngIf="!isAuthenticated"
+      >
+        Sign In
+      </a>
+      <a
+        class="link-profile"
+        routerLink="/profile"
+        routerLinkActive
+        *ngIf="isAuthenticated"
+      >
+        Profile
+      </a>
+      <button class="btn-logout" (click)="onSignOut()" *ngIf="isAuthenticated">
+        Sign Out
+      </button>
+    </div>
+    <div class="burger-menu" (click)="toggleMobileMenu()">
+      <span [ngClass]="{ open: isMobileMenuOpen === true }"></span>
+      <span [ngClass]="{ open: isMobileMenuOpen === true }"></span>
+      <span [ngClass]="{ open: isMobileMenuOpen === true }"></span>
+    </div>
+  </div>
+  <div
+    *ngIf="isMobileMenuOpen && isSmallerDevice"
+    class="mobile-menu-container"
+  >
+    <div class="resp-menu-links">
+      <a
+        class="link"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleMobileMenu()"
+        >Home</a
+      >
+      <a
+        class="link"
+        routerLink="/movies"
+        routerLinkActive="active"
+        (click)="toggleMobileMenu()"
+        >Movies</a
+      >
+    </div>
+    <div class="resp-menu-actions">
+      <a
+        class="auth-button"
+        routerLink="/auth"
+        routerLinkActive
+        (click)="toggleMobileMenu()"
+        *ngIf="!isAuthenticated"
+      >
+        Sign In
+      </a>
+      <a
+        class="link-profile"
+        routerLink="/profile"
+        routerLinkActive
+        *ngIf="isAuthenticated"
+        (click)="toggleMobileMenu()"
+      >
+        Profile
+      </a>
+      <button class="btn-logout" (click)="onSignOut()" *ngIf="isAuthenticated">
+        Sign Out
+      </button>
+    </div>
+  </div>
+</header>

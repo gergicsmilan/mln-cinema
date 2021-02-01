@@ -1,0 +1,110 @@
+.loading-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 92px;
+}
+
+.profile-empty {
+  margin-top: 92px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+.profile-empty > h1 {
+  text-align: center;
+}
+
+.profile-empty > a {
+  margin-top: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #6f2232;
+  padding: 6px 10px 6px 10px;
+  border-radius: 10px;
+  transition: all 0.4s;
+}
+
+.profile-empty > a:hover {
+  background-color: #6f2232;
+}
+
+.order-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 92px;
+}
+
+.order-container > h1 {
+  color: #6f2232;
+  margin-top: 32px;
+}
+
+.order {
+  display: flex;
+  flex-flow: column;
+  width: 600px;
+  margin: 32px 0;
+  padding: 12px;
+  background-color: #1a1a1d;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.ticket {
+  margin-left: 30px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+h3 {
+  color: #6f2232;
+  margin: 12px 0;
+}
+
+.btn-cancel {
+  margin-top: 24px;
+  align-self: flex-end;
+  border: 2px solid #6f2232;
+  outline: none;
+  border-radius: 10px;
+  padding: 6px 10px 6px 10px;
+  color: #fff;
+  background-color: #6f2232;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-cancel:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 426px) {
+  .order {
+    width: 85%;
+  }
+
+  .order-header > p {
+    font-size: 14px;
+  }
+
+  .profile-empty {
+    width: 99%;
+  }
+}

@@ -1,0 +1,30 @@
+<div class="movies-container">
+  <img
+    class="header"
+    src="/assets/covers/movies_cover.jpg"
+    alt="movies_header"
+  />
+  <h1 class="title">What's on</h1>
+  <p class="tool-tip">In order to check the movies please pick a date first:</p>
+  <span class="datepicker-toggle">
+    <span class="datepicker-toggle-button"></span>
+    <input
+      type="date"
+      class="datepicker-input"
+      min="{{ minDate }}"
+      (change)="onDateChange()"
+      [(ngModel)]="selectedDate"
+    />
+  </span>
+</div>
+<app-movies-list
+  [selectedDate]="selectedDate"
+  [isLoading]="isLoading"
+></app-movies-list>
+<app-costum-popup
+  *ngIf="error"
+  [header]="['OOPS.. Something went wrong!']"
+  [message]="error"
+  [btnMsg]="['Go to home page']"
+  (close)="navigateToHome()"
+></app-costum-popup>

@@ -1,0 +1,41 @@
+<div class="container" *ngIf="tickets.length >= 1">
+  <h2>Please pick ticket type</h2>
+  <hr />
+  <div class="table-container">
+    <table class="table-ticket-type">
+      <thead>
+        <tr class="th-row">
+          <td>Ticket</td>
+          <td>Type</td>
+          <td class="center">Price</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of tickets; let i = index">
+          <td>1x {{ selectedMovie.name }}</td>
+          <td>
+            <select
+              #t
+              name="ticket_type"
+              id="ticket_type"
+              (change)="handleTicketTypeChange(t.value, i)"
+            >
+              <option value="full_price">Full price</option>
+              <option value="student">Student</option>
+              <option value="child">Child (under 18)</option>
+            </select>
+          </td>
+          <td class="center">{{ ticket.price }} $</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <p>
+        * We require you to arrive 20 minutes before the scheduled start time,
+        because our system automatically deletes all untaken orders before 20
+        minutes of the start time!
+      </p>
+    </div>
+    <button class="btn-order" (click)="onOrder()">Buy tickets</button>
+  </div>
+</div>
