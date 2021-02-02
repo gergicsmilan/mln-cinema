@@ -8,8 +8,47 @@
 }
 
 .cover {
+  position: relative;
+  background: url("/assets/covers/home_cover.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 500px;
+  mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+.cover:before {
+  position: absolute;
+  inset: 0px;
+  content: "";
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.cover > h1 {
+  color: #fff;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  text-shadow: #000;
+}
+
+.link-movies {
+  position: absolute;
+  top: 100px;
+  left: 60px;
+  padding: 6px 10px 6px 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.link-movies:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
 }
 
 .about {
@@ -22,7 +61,7 @@
   position: relative;
   color: #fff;
   padding-bottom: 20px;
-  margin-bottom: 35px;
+  margin-bottom: 60px;
 }
 
 .title:after {
@@ -43,7 +82,7 @@
 
 .prices-container {
   width: 60%;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .prices-wrapper {
@@ -111,7 +150,7 @@ strong {
   height: 150px;
   padding: 30px;
   background: #000;
-  color: #4e4e50;
+  color: #fff;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   text-align: center;
@@ -154,6 +193,23 @@ strong {
 
   .cover {
     height: 200px;
+  }
+
+  .cover > h1 {
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    text-shadow: #000;
+    font-size: 22px;
+  }
+
+  .link-movies {
+    position: absolute;
+    top: 65px;
+    left: 30px;
+    padding: 3px 6px 3px 6px;
+    background-color: #fff;
   }
 
   .location-info {

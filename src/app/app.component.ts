@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     this.authService.autoLogin();
   }
 
-  onActivate(event) {
+  onActivate(e) {
     window.scroll(0, 0);
   }
 }
